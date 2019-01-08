@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>登陆</title>
+ <link rel="stylesheet" href="../../static/css/reset.css"/>
+ <link rel="stylesheet" href="../../static/css/index.css"/>
+ <link rel="stylesheet" href="../../static/css/public.css"/>
+ <link rel="stylesheet" href="../../static/css/login.css"/>
+
+
+<script type="text/javascript">
+    function foo(){
+     //检查表单
+        if(myform.name.value=="")
+        {
+            alert("请输入用户");
+            myform.name.focus(); //name控件获得焦点，网页光标定位到name控件
+            return false;
+        }
+        if (myform.pwd.value=="")
+        {
+            alert("请输入密码");
+            myform.pwd.focus();
+            return false;
+        }
+        if (myform.yzm.value=="")
+        {
+            alert("请输入验证码");
+            myform.yzm.focus();
+            return false;
+        }
+    }
+</script>
+</head>
+
+<body>
+<header class="ltHead">
+    <div class="ltHead_cen">
+        <a href=""><img src="../../static/img/logo1.png" alt="" class="headPic1"/></a>
+    </div>
+</header>
+<form action="{%  url 'login' %}" method="post">{% csrf_token %} <!--最后这个token解决Django跨域报错问题 -->
+    <div class="container"style="font-size:17px">
+        <div class="right">
+            <h2>用户登陆</h2>
+            <p></p>
+            <p>用户名:<input type="text" name="nickname" id="nickname" placeholder="  请输入用户名"></p>
+            <p>密&#12288码:<input type="password" name="password" id="password" placeholder="  请输入密码" ></p>
+            <p>验证码:<input type="text" name="yzm" id="yzm" placeholder="  请输入验证码">
+            <img src="../forum/yanzhengma.php" onClick="this.src='yanzhengma.php?nocache='+Math.random()" style="cursor:hand">
+            </p>
+            <p style=" margin-left: 200px"><a href="../register/">注册</a></p>
+            <p><button class="button">立即登陆</button></p>
+        </div>
+    </div>
+</form>
+<footer class="publicFooter">
+    <p>Copyright &copy; 华东师范大学开源软件俱乐部</p>
+</footer>
+</body>
+</html>5

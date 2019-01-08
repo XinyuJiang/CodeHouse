@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <title>发帖-CODE HOUSE</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <!----------------Global css------------------->
+    <link rel="stylesheet" href="../../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/vendors/revolution-slider/css/layers.css">
+    <link rel="stylesheet" href="../../static/vendors/revolution-slider/css/navigation.css">
+    <link rel="stylesheet" href="../../static/vendors/revolution-slider/css/settings.css">
+    <link rel="stylesheet" href="../../static/vendors/imagehover/css/imagehover.min.css">
+    <link rel="stylesheet" href="../../static/vendors/animate/animate.min.css">
+    <link rel="stylesheet" href="../../static/vendors/iCheck/css/all.css">
+    <link rel="stylesheet" href="../../static/vendors/sweetalert2/css/sweetalert2.min.css">
+    <!----------------custo css----------------->
+    <link rel="stylesheet" href="../../static/css/custom.css">
+</head>
+<body>
+<!-------------------Preloader---------------->
+<div class="preloader" style="position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:100000;
+    backface-visibility: hidden;
+    background: #ffffff;">
+    <div style=" width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-position: center;
+    margin:-25px 0 0 -25px;">
+        <img src="../../static/img/loader.gif" alt="loading...">
+    </div>
+</div>
+<!----------------Preloader end----------------->
+<!-------------Header--------->
+<div class="tp-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-7 col-md-6">
+                <a href="#"> <i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<header>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myMegamenu"><span
+                        class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="../../static/img/logo1.jpg" class="img-responsive" alt="logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="myMegamenu">
+                <ul class="nav navbar-nav">
+				    <li class="list2"><a href="../index/" class="hvr-underline-from-center">首页</a></li>
+                    <li class="list2"><a href="../tech_index/" class="hvr-underline-from-center">技术创作</a></li>
+                    <li class="list2"><a href="../chat_index/" class="hvr-underline-from-center">吐槽大会</a></li>
+                    <li class="list2"><a href="../person_index" class="hvr-underline-from-center">个人中心</a></li>
+                    <li class="list2"><a href="../Other" class="hvr-underline-from-center">其他</a></li>
+                </ul>
+            </div>
+
+        </nav>
+    </div>
+</header>
+
+<!----------------Body Section Start--------------->
+<main class="container"> 
+  <div class="form-group">
+    <label for="name">文章标题</label>
+    <input id = title type="text" class="form-control" id="name" placeholder="请输入文章标题">
+  </div>
+  <div class="form-group">
+    <label for="name">帖子</label>
+    <textarea id = content class="form-control" rows="5" ></textarea>
+  </div>
+  <h5>个人分类:<div class="txt-box">
+                            <div class="tag-box d-flex flex-row" id="categorieBox">
+                                <input name="hidTags" id="hidCategories" type="hidden" value="">
+                                <button class="btn-add-tag" id="addCategorie">
+                                    <i class="xheIcon icon-tianjia mr8" aria-hidden="true"><!--?xml version="1.0" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" class="icon" style="" viewBox="0 0 1024 1024" width="16" height="16" t="1535953779842" xmlns:xlink="http://www.w3.org/1999/xlink" p-id="3712" version="1.1"><defs><style type="text/css" /></defs><path fill="#349edf" d="M 736 64 H 288 C 164.8 64 64 164.8 64 288 v 448 c 0 123.2 100.8 224 224 224 h 448 c 123.2 0 224 -100.8 224 -224 V 288 c 0 -123.2 -100.8 -224 -224 -224 Z m -28.8 504 h -140.8 v 140.8 c 0 30.4 -25.6 56 -56 56 s -56 -25.6 -56 -56 v -140.8 h -140.8 c -30.4 0 -56 -25.6 -56 -56 s 25.6 -56 56 -56 h 140.8 v -140.8 c 0 -30.4 25.6 -56 56 -56 s 56 25.6 56 56 v 140.8 h 140.8 c 30.4 0 56 25.6 56 56 s -24 56 -56 56 Z" p-id="3713" /></svg></i>添加新分类
+                                </button>
+                            </div>
+                        </div>
+  </h5>
+  <h5>文章类型:
+				 <ul class="nav nav-pills">
+					<li class="dropdown all-camera-dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">请选择<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li data-filter-camera-type="all"><a data-toggle="tab" href="#">原创</a></li>
+							<li data-filter-camera-type="Alpha"><a data-toggle="tab" href="#">翻译</a></li>
+							<li data-filter-camera-type="Zed"><a data-toggle="tab" href="#">转载</a></li>
+						</ul>
+					</li>
+				 </ul>
+	</h5>					
+    <h5>私密文章: <div class="switch" data-on-label="已设置成私密" data-off-label="公开"  >
+                           <input type="checkbox" checked />
+                        </div>
+	</h5>						            
+    <div class="clearfix visible-sm-block visible-md-block visible-xs-block"></div>	
+    <div class="col-md-6 text-center section-bottom-15">
+        <button id="releasetiezi" name="releasetiezi" class="btn btn-success form-control">发布帖子</button>
+		  <a class="btn btn-success" href="tech_index.html">保存为草稿</a>
+          <a class="btn btn-success" href="tech_index.html">返回</a>
+	</div>	
+					      
+
+</main>
+<!-----------------------Body Section End---------------->
+
+
+
+<!--------------Footer Start--------------->
+<!------------Footer Caret Shape------------>
+<div class="shape section-top-50"></div>
+<!------------Footer Caret Shape end------------>
+<section class="subscribe_section parallax m-t-70">
+    <div class="container m-t-50">
+		<div class="row">
+            <div class="col-xs-12 col-sm-6 section-top-15">
+                <p class="footer_text_color"><a href="../index">首页</a> &nbsp;
+                    <a href="../tech_index">技术创作</a> &nbsp;
+                    <a href="../chat_index">吐槽大会</a> &nbsp;
+					<a href="../person_index">个人中心</a> &nbsp;
+                    <a href="../Other">其他</a></p>
+            </div>
+        </div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3 m-t-50">
+                <p class="text-center">Copyright &copy; 2018.华东师范大学开源软件俱乐部</p>
+            </div>
+		</div>
+    </div>
+</section>
+<!--------------Footer end--------------->
+
+<script src="../../static/js/jquery.min.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
+<script src="../../static/vendors/gmap3/js/gmap3.min.js"></script>
+<script src="../../static/vendors/wow/js/wow.min.js"></script>
+<!---<script src="https://ditu.google.cn/maps/api/js"></script>--->
+<script src="../../static/vendors/iCheck/js/icheck.js"></script>
+<script src="../../static/vendors/jribbble/js/jribbble.min.js"></script>
+<!-------------page Level Js------------------>
+<script src="../../static/js/custom.js"></script>
+</body>
+</html>
+
+<!------------Footer Caret Shape end------------>
+<script>
+        $("#releasetiezi").click(function () {
+            console.log("click button");
+            $.post("../postedit/",
+                {
+                    title: $("#title").val(),
+                    content: $("#content").val(),
+                    tag: 1
+                },
+                function (data) {
+                    if (data.status == 'error')
+                        alert("发帖失败！");
+                    else {
+                        window.location.href = "../tech_index"
+                    }
+                });
+        });
+</script>

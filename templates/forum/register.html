@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>注册</title>
+ <link rel="stylesheet" href="css/reset.css"/>
+ <link rel="stylesheet" href="css/index.css"/>
+ <link rel="stylesheet" href="css/public.css"/>
+ <link rel="stylesheet" href="css/register.css"/>
+
+
+<script type="text/javascript">
+    function checkinput()
+    {
+        if(myform.name.value=="")
+        {
+            alert("请输入用户名");
+            myform.name.focus();
+            return false;
+        }
+        if (myform.pwd.value=="")
+        {
+            alert("请输入密码");
+            myform.pwd.focus();
+            return false;
+        }
+        if(myform.pwd.value != myform.pwdconfirm.value){
+            alert("你输入的两次密码不一致，请重新输入！");
+            myform.pwd.focus();
+            return false;
+        }
+        if (myform.yzm.value=="")
+        {
+            alert("请输入验证码");
+            myform.yzm.focus();
+            return false;
+        }
+    }
+</script>
+</head>
+
+<body>
+<header class="ltHead">
+    <div class="ltHead_cen">
+        <a href=""><img src="img/logo1.png" alt="" class="headPic1"/></a>
+    </div>
+</header>
+
+<form action="{%  url 'register' %}" method="post">{% csrf_token %} <!--最后这个token解决Django跨域报错问题 -->
+    <!--在form表单中加入JS事件，这样提交表单时就会触发JS事件-->
+    <div class="container">
+        <div class="right">
+            <h2>用户注册</h2>
+            <p></p>
+            <p>用 户 名：<input type="text" name="nickname" id="nickname"></p>
+            <p>密　　码: <input type="password" name="password" id="password"></p>
+            <p>确认密码: <input type="password" name="pwdconfirm" id="pwdconfirm"></p>
+
+            <p style=" margin-left: 220px"><a href="login.html">返回登陆</a></p>
+            <p><button type="submit" value="注册" >立即注册</button></p>
+        </div>
+    </div>
+</form>
+
+<footer class="publicFooter">
+    <p>Copyright &copy; 华东师范大学开源软件俱乐部</p>
+</footer>
+</body>
+</html>

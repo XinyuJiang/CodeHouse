@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <title>帖子详情</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/img/favicon-32x32.png">
+    <!----------------Global css------------------->
+    <link rel="stylesheet" href="../../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/vendors/revolution-slider/css/layers.css">
+    <link rel="stylesheet" href="../../static/vendors/revolution-slider/css/navigation.css">
+    <link rel="stylesheet" href="../../static/vendors/revolution-slider/css/settings.css">
+    <link rel="stylesheet" href="../../static/vendors/imagehover/css/imagehover.min.css">
+    <link rel="stylesheet" href="../../static/vendors/animate/animate.min.css">
+    <link rel="stylesheet" href="../../static/vendors/iCheck/css/all.css">
+    <link rel="stylesheet" href="../../static/vendors/sweetalert2/css/sweetalert2.min.css">
+    <!----------------custo css----------------->
+    <link rel="stylesheet" href="../../static/css/custom.css">
+</head>
+<body>
+<!-------------------Preloader---------------->
+<div class="preloader" style="position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:100000;
+    backface-visibility: hidden;
+    background: #ffffff;">
+    <div style=" width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-position: center;
+    margin:-25px 0 0 -25px;">
+        <img src="../../static/img/loader.gif" alt="loading...">
+    </div>
+</div>
+<!----------------Preloader end----------------->
+<!-------------Header--------->
+<div class="tp-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-7 col-md-6">
+                <a href="#"> <i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+            </div>
+            <div class="col-xs-5 col-md-6 text-right">
+			    <a href="../tucao/" class="hvr-underline-from-center">吐槽</a>
+            </div>
+        </div>
+    </div>
+</div>
+<header>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myMegamenu"><span
+                        class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="../../static/img/logo1.jpg" class="img-responsive" alt="company-logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="myMegamenu">
+                <ul class="nav navbar-nav">
+				    <li class="list2"><a href="../index" class="hvr-underline-from-center">首页</a></li>
+                    <li class="list2"><a href="../tech_index" class="hvr-underline-from-center">技术创作</a></li>
+                    <li class="list2"><a href="../chat_index" class="hvr-underline-from-center">吐槽大会</a></li>
+                    <li class="list2"><a href="../person_index" class="hvr-underline-from-center">个人中心</a></li>
+                    <li class="list2"><a href="../Other" class="hvr-underline-from-center">其他</a></li>
+                </ul>
+            </div>
+
+        </nav>
+    </div>
+</header>
+
+<!--Login And Register Modal-->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <br>
+            <div class="bs-example bs-example-tabs">
+                <ul id="myTab" class="nav nav-tabs ">
+                    <li id="signin_tab" class="active"><a href="#signin" data-toggle="tab">登录</a></li>
+                    <li id="reg_tab"><a href="#signup" data-toggle="tab">注册</a></li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div id="myTabContent" class="tab-content">
+                    <div class=" signin tab-pane fade active in" id="signin">
+                        <form method="post"  class="form-horizontal" onsubmit="return ">{% csrf_token %}
+                            <fieldset>
+                                <div class="control-group section-top-10">
+                                    <label class="control-label" for="userid"><span
+                                            class="glyphicon glyphicon-user text-primary"></span> 用户名:</label>
+                                    <div class="controls">
+                                        <input id="nickname" name="nickname" type="text" class="form-control input-medium"
+                                               placeholder="user Id" required>
+                                    </div>
+                                </div>
+                                <div class="control-group section-top-10">
+                                    <label class="control-label" for="passwordinput"><span
+                                            class="glyphicon glyphicon-eye-open text-primary"></span> 密码 :</label>
+                                    <div class="controls">
+                                        <input type="password" id="password" name="password"
+                                               class="form-control input-medium" placeholder="Password" required>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="blue">记住密码</label>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls section-top-10">
+                                        <button type=submit id="signin_btn" name="signin" class="btn btn-success form-control">登
+										录
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade signup" id="signup">
+                        <form method="post" class="form-horizontal" onsubmit="return ">   {% csrf_token %}
+                            <fieldset>
+                                <div class="control-group section-top-10">
+                                    <label for="user"><span class="glyphicon glyphicon-user text-primary"></span> 姓名
+                                        :</label>
+                                    <div class="controls">
+                                        <input id="nickname" name="password" class="form-control input-large" type="text"
+                                               placeholder="Name" required="">
+                                    </div>
+                                </div>
+                                <div class="control-group section-top-10">
+                                    <label class="control-label" for="Email_id"><span
+                                            class="glyphicon glyphicon-envelope text-primary"></span> 邮箱 :</label>
+                                    <div class="controls">
+                                        <input id="Email_id" name="Email" class="form-control input-large" type="email"
+                                               placeholder="abcdef@xyz.com" required>
+                                    </div>
+                                </div>
+                                <div class="control-group section-top-10">
+                                    <label for="password"><span
+                                            class="glyphicon glyphicon-eye-open text-primary"></span>
+                                        密码 :</label>
+                                    <div class="controls">
+                                        <input id="password" name="password" class="form-control input-large"
+                                               type="password" placeholder="Password" required>
+
+                                    </div>
+                                </div>
+                                <div class="control-group section-top-10">
+                                    <label class="control-label" for="reenterpassword"><span
+                                            class="glyphicon glyphicon-repeat text-primary"></span> 重新输入密码 :</label>
+                                    <div class="controls">
+                                        <input id="reenterpassword" class="form-control input-large"
+                                               name="reenterpassword" type="password" placeholder="Re Enter Password"
+                                               required="">
+                                    </div>
+                                </div>
+                                <div class="control-group section-top-10">
+                                    <label class="control-label" for="confirmsignup"></label>
+                                    <div class="controls">
+                                        <button type="submit" id="confirmsignup" name="confirmsignup"
+                                                class="btn btn-success form-control">注册
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Login And Register Modal-->
+
+<!----------------Body Section Start--------------->
+
+<div class="container">
+<!-------------tiezi detail start------------>
+    <ul>
+        <div class="row">
+			    <div class="col-xs-12 col-sm-6 col-sm-offset-3 m-t-50">
+                    <h5><strong>{{ tiezi.title }} </strong></h5>
+                    <hr/>
+                    <p> {{ tiezi.content }} </p>
+					 <hr/>
+					<p> <strong>张三：</strong> 那我+1 </p>
+                    <ul class="social_icons list-inline">
+                       <p> <textarea id = content class="form-control" rows="5" ></textarea> 
+						<div class ="divbutton"><button id="comment" name="comment" class="buttonsubmit">发表评论</button> </div></p>
+                    </ul>
+                </div>
+            </div>
+    </ul>
+
+
+
+
+</div>
+<!-------------朋友圈end------------>
+
+<!-----------------------Body Section End---------------->
+
+
+
+<!-------------------订阅消息----------->
+<section class="subscribe_section parallax m-t-70">
+    <div class="container m-t-50">
+        <div class="row section-top-25">
+            <div class="col-sm-7 col-md-6 col-xs-12 section-top-10">
+                <h3 class="text-white text-right m-t-70">订阅校园编程赛事消息</h3>
+            </div>
+            <div class="col-sm-5 col-md-6 m-t-50 section-bottom-pad-40  input_transparent">
+                <br/>
+                <form action="subscribe.php" method="post" id="subscribe" autocomplete="off">
+                    <div class="input-group sub_input">
+                        <input type="email" name="email" id="email" class="form-control email"
+                               placeholder="你的电子邮箱" aria-describedby="email" required/>
+                        <span class="input-group-addon"><button type="submit" class="subscribe_btn"><i
+                                class="fa fa-paper-plane text-white" aria-hidden="true"></i></button></span>
+                    </div>
+                </form>
+                <br/>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-xs-12 col-sm-6 section-top-15">
+                <p class="footer_text_color"><a href="../index">首页</a> &nbsp;
+                    <a href="../tech_index">技术创作</a> &nbsp;
+                    <a href="../chat_index">吐槽大会</a> &nbsp;
+					<a href="../person_index">个人中心</a> &nbsp;
+                    <a href="../Other">其他</a></p>
+            </div>
+        </div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3 m-t-50">
+                <p class="text-center">Copyright &copy; 2018.华东师范大学开源软件俱乐部</p>
+            </div>
+		</div>
+    </div>
+</section>
+<!-----------------订阅消息End-------->
+<!-----------------------Body Section End---------------->
+
+<script src="../../static/js/jquery.min.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
+<script src="../../static/vendors/gmap3/js/gmap3.min.js"></script>
+<script src="../../static/vendors/wow/js/wow.min.js"></script>
+<!---<script src="https://ditu.google.cn/maps/api/js"></script>--->
+<script src="../../static/vendors/iCheck/js/icheck.js"></script>
+<script src="../../static/vendors/jribbble/js/jribbble.min.js"></script>
+<!-------------page Level Js------------------>
+<script src="../../static/js/custom.js"></script>
+</body>
+</html>

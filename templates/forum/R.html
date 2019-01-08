@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <title>CODE HOUSE</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/img/favicon-32x32.png">
+    <!----------------Global css------------------->
+    <link rel="stylesheet" href="../../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/vendors/revolution-slider/css/layers.css">
+    <link rel="stylesheet" href="../../static/vendors/revolution-slider/css/navigation.css">
+    <link rel="stylesheet" href="../../static/vendors/revolution-slider/css/settings.css">
+    <link rel="stylesheet" href="../../static/vendors/imagehover/css/imagehover.min.css">
+    <link rel="stylesheet" href="../../static/vendors/animate/animate.min.css">
+    <link rel="stylesheet" href="../../static/vendors/iCheck/css/all.css">
+    <link rel="stylesheet" href="../../static/vendors/sweetalert2/css/sweetalert2.min.css">
+    <!----------------custo css----------------->
+    <link rel="stylesheet" href="../../static/css/custom.css">
+</head>
+<body>
+<!-------------------Preloader---------------->
+<div class="preloader" style="position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:100000;
+    backface-visibility: hidden;
+    background: #ffffff;">
+    <div style=" width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-position: center;
+    margin:-25px 0 0 -25px;">
+        <img src="../../static/img/loader.gif" alt="loading...">
+    </div>
+</div>
+<!----------------Preloader end----------------->
+<!-------------Header--------->
+<div class="tp-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-7 col-md-6">
+                <a href="#"> <i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+            </div>
+            <div class="col-xs-5 col-md-6 text-right">
+			    <a href="../postedit/" class="hvr-underline-from-center">发贴</a>
+            </div>
+        </div>
+    </div>
+</div>
+<header>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myMegamenu"><span
+                        class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="../../static/img/logo1.jpg" class="img-responsive" alt="logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="myMegamenu">
+                <ul class="nav navbar-nav">
+				    <li class="list2"><a href="../index/" class="hvr-underline-from-center">首页</a></li>
+                    <li class="list2"><a href="../tech_index/" class="hvr-underline-from-center">技术创作</a></li>
+                    <li class="list2"><a href="../chat_index/" class="hvr-underline-from-center">吐槽大会</a></li>
+                    <li class="list2"><a href="../person_index" class="hvr-underline-from-center">个人中心</a></li>
+                    <li class="list2"><a href="../Other" class="hvr-underline-from-center">其他</a></li>
+                </ul>
+            </div>
+
+        </nav>
+    </div>
+</header>
+
+<!----------------Body Section Start--------------->
+<div class="container">
+<!-------------R帖子内容start------------>
+     {% if latest_tiezi_list %}
+    <ul>
+    {% for tiezi in latest_tiezi_list %}
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 m-t-50">
+                <h5>{{ tiezi.title }}</h5>
+                    <hr/>
+                                        <p>{{ tiezi.content }}<a  href="../{{ tiezi.id }}" class="text-success"> Read more</a></p>
+
+                    <ul class="social_icons list-inline">
+                       
+                    </ul>
+            </div>
+        </div>
+    {% endfor %}
+    </ul>
+
+    {% else %}
+        <p>No tiezi are available.</p>
+    {% endif %}
+
+</div>
+<!------------R帖子内容end------------>
+
+<!-----------------------Body Section End---------------->
+
+
+
+<!--------------Footer Start--------------->
+<!------------Footer Caret Shape------------>
+<div class="shape section-top-50"></div>
+<!------------Footer Caret Shape end------------>
+<section class="footer_one">
+    <footer>
+        <div class="container">
+            <div class="row section-top-40">
+                <div class="col-md-3 col-sm-6 section-top-25">
+                    <h4 class="text-white">相关链接</h4>
+                    <hr/>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="footer_text_color">链接1
+                                链接2
+                                链接3</p>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <span class="foot_icon">
+                            <a href="#"><i class="fa fa-facebook section-top-10 footer_social_icons"
+                                           aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-twitter section-top-10 footer_social_icons"
+                                           aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-linkedin section-top-10 footer_social_icons"
+                                           aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-instagram section-top-10 footer_social_icons"
+                                           aria-hidden="true"></i></a>
+                        </span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3  col-lg-3 col-sm-6 section-top-25">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 class="text-white">最新发帖</h4>
+                            <hr/>
+                        </div>
+                        <div class="footer_contact">
+                            <div class="col-md-1  col-xs-1"><a href="blog.html"><i class="fa fa-caret-right div_hover1"
+                                                                                   aria-hidden="true"></i></a></div>
+                            <div class="col-md-10  col-xs-10"><a href="blog.html" class="div_hover2"> right team in
+                                the
+                                right place</a><br/><span class="footer_text_color">jiang. 25, 2018   </span></div>
+                        </div>
+                        <div class="clearfix visible-xs-block visible-sm-block visible-lg-block visible-md-block"></div>
+                        <div class="footer_contact">
+                            <div class="col-md-1  col-xs-1 section-top-10"><a href="blog.html"><i
+                                    class="fa fa-caret-right div_hover1" aria-hidden="true"></i></a></div>
+                            <div class="col-md-10  col-xs-10 section-top-10"><a href="blog.html" class="div_hover2">How
+                                to
+                                develop your company </a><br/><span class="footer_text_color">jiang. 21, 2018   </span>
+                            </div>
+                        </div>
+                        <div class="clearfix visible-xs-block visible-sm-block visible-lg-block visible-md-block"></div>
+                        <div class="footer_contact">
+                            <div class="col-md-1  col-xs-1 section-top-10"><a href="blog.html"><i
+                                    class="fa fa-caret-right div_hover1" aria-hidden="true"></i></a></div>
+                            <div class="col-md-10  col-xs-10 section-top-10"><a href="blog.html" class="div_hover2">
+                                Managing your community blog</a><br/><span
+                                    class="footer_text_color">jiang. 18, 2018   </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-6 section-top-25">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 class="text-white">待开发模块1</h4>
+                            <hr/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul class="shots"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 section-top-25">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 class="text-white">待开发模块2</h4>
+                            <hr/>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <div class="tweet">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</section>
+<!-------------------Footer section End------------------>
+<!------------------Copy rights------------------->
+<section class="copy-rights">
+    <div class="container ">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 section-top-15">
+                <p class="footer_text_color"><a href="../index">首页</a> &nbsp;
+                    <a href="../tech_index">技术创作</a> &nbsp;
+                    <a href="../chat_index">吐槽大会</a> &nbsp;
+					<a href="../person_index">个人中心</a> &nbsp;
+                    <a href="../Other">其他</a></p>
+            </div>
+        </div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3 m-t-50">
+                <p class="text-center">Copyright &copy; 2018.华东师范大学开源软件俱乐部</p>
+            </div>
+		</div>
+        <a href="#" id="return-to-top"><img src="images/backto.png" alt="image-missing"></a>
+    </div>
+</section>
+<!------------------Copy rights End------------------>
+<script src="../../static/js/jquery.min.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
+<script src="../../static/vendors/gmap3/js/gmap3.min.js"></script>
+<script src="../../static/vendors/wow/js/wow.min.js"></script>
+<!---<script src="https://ditu.google.cn/maps/api/js"></script>--->
+<script src="../../static/vendors/iCheck/js/icheck.js"></script>
+<script src="../../static/vendors/jribbble/js/jribbble.min.js"></script>
+<!-------------page Level Js------------------>
+<script src="../../static/js/custom.js"></script>
+</body>
+</html>
